@@ -28,10 +28,32 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bot.css">
     <link rel="stylesheet" href="css/whtasapp.css">
 </head>
 
 <body>
+    <!-- aibot -->
+     <!-- Floating Button -->
+<button id="chat-toggle">💬</button>
+
+<!-- Chat Widget -->
+<div id="chat-widget">
+  <div class="chat-header">
+    <span>NexGenByte Support</span>
+    <button id="close-chat">✕</button>
+  </div>
+
+  <div class="chat-body" id="chatBox">
+    <div class="ai-msg">👋 Hi! How can I help you today?</div>
+  </div>
+
+  <div class="chat-footer">
+    <input type="text" id="userInput" placeholder="Type your message..." />
+    <button id="sendBtn">➤</button>
+  </div>
+</div>
+    <!-- aibot End -->
      <div class="whatapp-icon">
        
         <a href="https://wa.me/03159711237"> <img src="img/pngwing.com (757.png" alt="" width="50px"></a>
@@ -268,6 +290,7 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
 
     <!-- Template Javascript -->
+      <script src="js/bot.js"></script>
     <script src="js/main.js"></script>
 </body>
 
