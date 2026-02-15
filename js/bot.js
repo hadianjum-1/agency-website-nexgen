@@ -35,7 +35,7 @@ async function sendMessage() {
   aiDiv.innerText = "Typing...";
   chatBox.appendChild(aiDiv);
 
-  const res = await fetch("http://localhost:3000/chat", {
+  const res = await fetch("https://bot-production-0b6a.up.railway.app/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message: text }),
