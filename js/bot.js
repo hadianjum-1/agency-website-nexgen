@@ -5,6 +5,26 @@ const sendBtn = document.getElementById("sendBtn");
 const input = document.getElementById("userInput");
 const chatBox = document.getElementById("chatBox");
 
+/* =========================
+   SESSION ID (IMPORTANT)
+========================= */
+let sessionId = localStorage.getItem("chat_session_id");
+if (!sessionId) {
+  sessionId = crypto.randomUUID();
+  localStorage.setItem("chat_session_id", sessionId);
+}
+
+/* =========================
+   LEAD CACHE
+========================= */
+const leadData = {
+  name: "",
+  email: "",
+  phone: "",
+  service: "",
+  message: "",
+};
+
 toggleBtn.onclick = () => {
   chatWidget.style.display = "flex";
 };
@@ -22,26 +42,63 @@ async function sendMessage() {
   const text = input.value.trim();
   if (!text) return;
 
-  const userDiv = document.createElement("div");
-  userDiv.className = "user-msg";
-  userDiv.innerText = text;
-  chatBox.appendChild(userDiv);
-
+  chatBox.innerHTML += `<div class="user-msg">${text}</div>`;
   input.value = "";
-  chatBox.scrollTop = chatBox.scrollHeight;
 
   const aiDiv = document.createElement("div");
   aiDiv.className = "ai-msg";
   aiDiv.innerText = "Typing...";
   chatBox.appendChild(aiDiv);
 
-  const res = await fetch("https://bot-production-0b6a.up.railway.app/chat", {
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  const res = await fetch(" https://bot-production-0b6a.up.railway.app/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message: text }),
+    body: JSON.stringify({
+      message: text,
+      sessionId: sessionId
+    }),
   });
 
   const data = await res.json();
   aiDiv.innerText = data.reply;
   chatBox.scrollTop = chatBox.scrollHeight;
+
+  /* =========================
+     AUTO CAPTURE USER INFO
+  ========================= */
+  if (!leadData.email && text.includes("@")) {
+    leadData.email = text;
+  } else if (!leadData.phone && /\d{7,}/.test(text)) {
+    leadData.phone = text;
+  } else if (!leadData.name) {
+    leadData.name = text;
+  } else if (!leadData.service) {
+    leadData.service = text;
+  } else if (!leadData.message) {
+    leadData.message = text;
+  }
+
+  /* =========================
+     SEND LEAD ONLY ONCE
+  ========================= */
+  if (data.done === true && !localStorage.getItem("lead_sent")) {
+    await fetch("https://bot-production-0b6a.up.railway.app/lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: leadData.name || "Website Visitor",
+        email: leadData.email,
+        phone: leadData.phone || "",
+        service: leadData.service || "Not specified",
+        message: leadData.message || "Interested via chatbot",
+      }),
+    });
+
+    localStorage.setItem("lead_sent", "true");
+  }
 }
+
+
+// https://bot-production-0b6a.up.railway.app/lead https://bot-production-0b6a.up.railway.app/chat
