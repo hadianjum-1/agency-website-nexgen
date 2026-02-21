@@ -35,12 +35,14 @@ closeBtn.onclick = () => {
 
 sendBtn.onclick = sendMessage;
 input.addEventListener("keydown", function(e) {
-  if (e.key === "Enter" && !e.shiftKey) {
-    e.preventDefault(); // stop new line
+  const isMobile = window.innerWidth <= 768;
+
+  // Desktop behavior
+  if (!isMobile && e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault();
     sendMessage();
   }
 });
-
 async function sendMessage() {
   const text = input.value.trim();
   if (!text) return;
