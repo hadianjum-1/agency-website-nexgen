@@ -34,8 +34,11 @@ closeBtn.onclick = () => {
 };
 
 sendBtn.onclick = sendMessage;
-input.addEventListener("keypress", e => {
-  if (e.key === "Enter") sendMessage();
+input.addEventListener("keydown", function(e) {
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault(); // stop new line
+    sendMessage();
+  }
 });
 
 async function sendMessage() {
@@ -44,8 +47,23 @@ async function sendMessage() {
 
   chatBox.innerHTML += `<div class="user-msg">${text}</div>`;
   input.value = "";
+  const BotICon = document.createElement('div');
+ 
+BotICon.classList.add('bot-pic');
 
-  const aiDiv = document.createElement("div");
+const img = document.createElement("img");
+img.src = "./img/cute-smiling-robot-face-glowing-600nw-2657821003.webp";
+img.alt = "Bot";
+
+BotICon.appendChild(img);
+
+const aiDiv = document.createElement("div");
+aiDiv.className = "ai-msg";
+aiDiv.innerText = "Typing...";
+
+chatBox.appendChild(BotICon);
+chatBox.appendChild(aiDiv);
+ 
   aiDiv.className = "ai-msg";
   aiDiv.innerText = "Typing...";
   chatBox.appendChild(aiDiv);

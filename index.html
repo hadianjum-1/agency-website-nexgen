@@ -26,6 +26,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
@@ -41,17 +42,20 @@
 <!-- Chat Widget -->
 <div id="chat-widget">
   <div class="chat-header">
+    <div class="lo-supo"><img src="img/white-log.png" alt="" width="30px"></div>
     <span>NexGenByte Support</span>
-    <button id="close-chat">✕</button>
+    <button id="close-chat"><i class="fa-solid fa-angle-down"></i></button>
+    <!-- <a href="#"  ></a> -->
   </div>
 
   <div class="chat-body" id="chatBox">
+    <div class="bot-pic"><img src="img/cute-smiling-robot-face-glowing-600nw-2657821003.webp" alt="" width="30px"></div>
     <div class="ai-msg">👋 Hi! How can I help you today?</div>
   </div>
 
   <div class="chat-footer">
-    <input type="text" id="userInput" placeholder="Type your message..." />
-    <button id="sendBtn">➤</button>
+    <textarea name="" id="userInput" placeholder="Type your message..." ></textarea>
+    <button id="sendBtn"><i class="fa-regular fa-paper-plane"></i></button>
   </div>
 </div>
     <!-- aibot End -->
@@ -605,7 +609,7 @@
 
 
         <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
+        <!-- <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a> -->
     </div>
 
     <!-- JavaScript Libraries -->

@@ -2,17 +2,17 @@
     position: fixed;
     right: 20px;
     bottom: 10px;
-    animation: shake 1s ease-in infinite;
-    transition: 0.5s ease-in-out ;
+    animation: shake 10s ease-in infinite;
+    transition: 1.5s ease-in-out ;
     cursor: pointer;
 }
 
-@keyframes shake {
+/* @keyframes shake {
     50%{
         transform: translateX(-10px);
     }
     100%{
         transform: translateY(10px);
     }
-}
+} */
 

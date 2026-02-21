@@ -1,8 +1,14 @@
 
+:root {
+    --primary:  #00e5ff;
+    --secondary: #00e5ff;
+    --light: #F7FAFF;
+    --dark: #1D1D27;
+}
 #chat-toggle {
   position: fixed;
-  bottom: 90px;
-  right: 24px;
+  bottom: 70px;
+    right: 15px;
   background: #0f172a;
   color: white;
   border: none;
@@ -12,6 +18,7 @@
   font-size: 24px;
   cursor: pointer;
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  z-index: 2;
 }
 
 #chat-widget {
@@ -51,10 +58,10 @@
   border-top: 1px solid #e5e7eb;
 }
 
-.chat-footer input {
+.chat-footer textarea {
   flex: 1;
-  padding: 10px;
-  border-radius: 8px;
+  padding: 9px;
+  border-radius: 18px;
   border: 1px solid #d1d5db;
 }
 
@@ -63,9 +70,10 @@
   background: #0f172a;
   color: white;
   border: none;
+  border-radius: 50px;
   padding: 10px 14px;
-  border-radius: 8px;
   cursor: pointer;
+  font-size: 15px;
 }
 
 .ai-msg, .user-msg {
@@ -86,4 +94,43 @@
   color: white;
   align-self: flex-end;
   margin-left: auto;
+}
+#userInput{
+  resize: none;
+  overflow-y: hidden;
+  height: 42px;
+  outline: none;
+  
+}
+#close-chat{
+  border-radius: 50px;
+    width: 34px;
+    height: 25px;
+    background-color: #10345F;
+    border: none;
+  color: var(--light);
+}
+.bot-pic{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid var(--primary);
+  margin-bottom: 10px;
+ 
+}
+.bot-pic img{
+   width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+
+}
+
+@media (max-width:900px){
+  #chat-widget{
+  width: 90%;
+  height: 80%;
+  z-index: 2;
+    
+  }
 }
