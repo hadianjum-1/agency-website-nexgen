@@ -69,8 +69,8 @@
           <div class="form-1">
             <div class="form-2">
               <h5>Send us email?</h5>
-              <form>
-                <input type="email" placeholder="Enter your email" />
+              <form action="https://formspree.io/f/xojkwdny" method="POST">
+                <input type="email" placeholder="Enter your email" name="email"/>
                 <button type="submit">
                   <i class="fa-solid fa-location-arrow"></i>
                 </button>
@@ -744,62 +744,53 @@ We optimize website speed, performance, and SEO structure to help your website r
 
                 <div class="contact-card wow fadeInUp" data-wow-delay="0.3s">
 
-                    <form action="https://api.web3forms.com/submit" method="POST">
-    
-    <!-- Web3Forms Access Key -->
-    <input type="hidden" name="access_key" value="19d236f8-c28c-4a90-8051-08b6b0428155">
+                   <form action="https://formspree.io/f/xlgpnbpl" method="POST">
 
-    <!-- Optional: Redirect after success -->
-    <input type="hidden" name="redirect" value="https://nexgenbyte.com/thank-you.html">
+<div class="row g-4">
 
-    <!-- Optional: Email subject -->
-    <input type="hidden" name="subject" value="New Contact Form Submission - NexGenByte">
+<div class="col-md-6">
+<input 
+type="text"
+class="form-control custom-input"
+placeholder="Your Name"
+name="name"
+required>
+</div>
 
-    <!-- Honeypot (Anti-spam) -->
-    <input type="checkbox" name="botcheck" style="display:none;">
+<div class="col-md-6">
+<input
+type="email"
+class="form-control custom-input"
+placeholder="Your Email"
+name="email"
+required>
+</div>
 
-    <div class="row g-4">
-        <div class="col-md-6">
-            <input 
-                type="text" 
-                class="form-control custom-input" 
-                placeholder="Your Name" 
-                name="name" 
-                required>
-        </div>
+<div class="col-12">
+<input
+type="text"
+class="form-control custom-input"
+placeholder="Subject"
+name="subject">
+</div>
 
-        <div class="col-md-6">
-            <input 
-                type="email" 
-                class="form-control custom-input" 
-                placeholder="Your Email" 
-                name="email" 
-                required>
-        </div>
+<div class="col-12">
+<textarea
+class="form-control custom-input"
+rows="5"
+placeholder="Tell us about your project..."
+name="message"
+required></textarea>
+</div>
 
-        <div class="col-12">
-            <input 
-                type="text" 
-                class="form-control custom-input" 
-                placeholder="Subject" 
-                name="subject">
-        </div>
+<div class="col-12">
+<button type="submit" class="btn contact-btn w-100">
+Send Message
+</button>
+</div>
 
-        <div class="col-12">
-            <textarea 
-                class="form-control custom-input" 
-                rows="5" 
-                placeholder="Tell us about your project..." 
-                name="message" 
-                required></textarea>
-        </div>
+</div>
 
-        <div class="col-12">
-            <button type="submit" class="btn contact-btn w-100">
-                Send Message
-            </button>
-        </div>
-    </div>
 </form>
 
                 </div>
