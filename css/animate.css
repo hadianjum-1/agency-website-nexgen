@@ -1,0 +1,36 @@
+.animation-badges{
+    width:90vw;
+    height:128px;
+    margin:5px auto;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.slider-track{
+    display:flex;
+    width:max-content;
+    animation:scroll 15s linear infinite;
+}
+
+.group-badge{
+    display:flex;
+    gap:40px;
+}
+
+.pio-a{
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+@keyframes scroll{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
+}
